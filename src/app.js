@@ -7,7 +7,7 @@ import "./assets/img/4geeks.ico";
 
 function tipo() {
   let tipos = ["♦", "♥", "♠", "♣"];
-  let indice = math.floor(math.random() * tipos.length);
+  let indice = Math.floor(Math.random() * tipos.length);
   return tipos[indice];
 }
 
@@ -27,11 +27,27 @@ function numero() {
     "Q",
     "K"
   ];
-  let indice = math.floor(math.random() * numeros.length);
+  let indice = Math.floor(Math.random() * numeros.length);
   return numeros[indice];
 }
 
 window.onload = function() {
   //write your code here
-  console.log("Hello Rigo from the console!");
+
+  let cambiarNumero = document.getElementById("sizeNumber");
+  cambiarNumero.innerHTML = numero();
+  let simboloencabezado = document.getElementById("symbol-top");
+  let simbolopie = document.getElementById("symbol-botton");
+  let NuevoSimbolo = tipo();
+  if (NuevoSimbolo == "♠" || NuevoSimbolo == "♣") {
+    simboloencabezado.style.color = "black";
+    simbolopie.style.color = "black";
+  } else {
+    //corazones o diamantes
+
+    simboloencabezado.style.color = "red";
+    simbolopie.style.color = "red";
+  }
+  simboloencabezado.innerHTML = NuevoSimbolo;
+  simbolopie.innerHTML = NuevoSimbolo;
 };
